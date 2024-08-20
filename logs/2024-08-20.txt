@@ -1,0 +1,52 @@
+[20-Aug-2024 16:03:44 UTC] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 C:\laragon\www\online_library_3\public\route.php(12): Core\Router->dispatch('favicon.ico')
+#1 C:\laragon\www\online_library_3\public\index.php(21): require('C:\\laragon\\www\\...')
+#2 {main}
+Thrown in 'C:\laragon\www\online_library_3\Core\Router.php' on line 128
+[20-Aug-2024 16:18:14 UTC] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 C:\laragon\www\online_library_3\public\route.php(12): Core\Router->dispatch('')
+#1 C:\laragon\www\online_library_3\public\index.php(21): require('C:\\laragon\\www\\...')
+#2 {main}
+Thrown in 'C:\laragon\www\online_library_3\Core\Router.php' on line 128
+[20-Aug-2024 16:23:53 UTC] Uncaught exception: 'Error' with message 'Class "App\Controllers\User" not found'
+Stack trace: #0 C:\laragon\www\online_library_3\Core\Router.php(119): App\Controllers\HomeController->index()
+#1 C:\laragon\www\online_library_3\public\route.php(12): Core\Router->dispatch('')
+#2 C:\laragon\www\online_library_3\public\index.php(21): require('C:\\laragon\\www\\...')
+#3 {main}
+Thrown in 'C:\laragon\www\online_library_3\App\Controllers\HomeController.php' on line 15
+[20-Aug-2024 16:25:02 UTC] Uncaught exception: 'Twig\Error\RuntimeError' with message 'An exception has been thrown during the rendering of a template ("Array to string conversion").'
+Stack trace: #0 C:\laragon\www\online_library_3\vendor\twig\twig\src\Template.php(367): Twig\Template->displayWithErrorHandling(Array, Array)
+#1 C:\laragon\www\online_library_3\vendor\twig\twig\src\Template.php(379): Twig\Template->display(Array)
+#2 C:\laragon\www\online_library_3\vendor\twig\twig\src\TemplateWrapper.php(40): Twig\Template->render(Array, Array)
+#3 C:\laragon\www\online_library_3\vendor\twig\twig\src\Environment.php(280): Twig\TemplateWrapper->render(Array)
+#4 C:\laragon\www\online_library_3\Core\View.php(49): Twig\Environment->render('Dashboard/index...', Array)
+#5 C:\laragon\www\online_library_3\App\Controllers\HomeController.php(16): Core\View::renderTemplate('Dashboard/index...', Array)
+#6 C:\laragon\www\online_library_3\Core\Router.php(119): App\Controllers\HomeController->index()
+#7 C:\laragon\www\online_library_3\public\route.php(12): Core\Router->dispatch('')
+#8 C:\laragon\www\online_library_3\public\index.php(21): require('C:\\laragon\\www\\...')
+#9 {main}
+Thrown in 'C:\laragon\www\online_library_3\App\Views\Dashboard\index.html' on line 2
+[20-Aug-2024 16:25:04 UTC] Uncaught exception: 'Twig\Error\RuntimeError' with message 'An exception has been thrown during the rendering of a template ("Array to string conversion").'
+Stack trace: #0 C:\laragon\www\online_library_3\vendor\twig\twig\src\Template.php(367): Twig\Template->displayWithErrorHandling(Array, Array)
+#1 C:\laragon\www\online_library_3\vendor\twig\twig\src\Template.php(379): Twig\Template->display(Array)
+#2 C:\laragon\www\online_library_3\vendor\twig\twig\src\TemplateWrapper.php(40): Twig\Template->render(Array, Array)
+#3 C:\laragon\www\online_library_3\vendor\twig\twig\src\Environment.php(280): Twig\TemplateWrapper->render(Array)
+#4 C:\laragon\www\online_library_3\Core\View.php(49): Twig\Environment->render('Dashboard/index...', Array)
+#5 C:\laragon\www\online_library_3\App\Controllers\HomeController.php(16): Core\View::renderTemplate('Dashboard/index...', Array)
+#6 C:\laragon\www\online_library_3\Core\Router.php(119): App\Controllers\HomeController->index()
+#7 C:\laragon\www\online_library_3\public\route.php(12): Core\Router->dispatch('')
+#8 C:\laragon\www\online_library_3\public\index.php(21): require('C:\\laragon\\www\\...')
+#9 {main}
+Thrown in 'C:\laragon\www\online_library_3\App\Views\Dashboard\index.html' on line 2
+[20-Aug-2024 16:25:33 UTC] Uncaught exception: 'Twig\Error\RuntimeError' with message 'An exception has been thrown during the rendering of a template ("Array to string conversion").'
+Stack trace: #0 C:\laragon\www\online_library_3\vendor\twig\twig\src\Template.php(367): Twig\Template->displayWithErrorHandling(Array, Array)
+#1 C:\laragon\www\online_library_3\vendor\twig\twig\src\Template.php(379): Twig\Template->display(Array)
+#2 C:\laragon\www\online_library_3\vendor\twig\twig\src\TemplateWrapper.php(40): Twig\Template->render(Array, Array)
+#3 C:\laragon\www\online_library_3\vendor\twig\twig\src\Environment.php(280): Twig\TemplateWrapper->render(Array)
+#4 C:\laragon\www\online_library_3\Core\View.php(49): Twig\Environment->render('Dashboard/index...', Array)
+#5 C:\laragon\www\online_library_3\App\Controllers\HomeController.php(16): Core\View::renderTemplate('Dashboard/index...', Array)
+#6 C:\laragon\www\online_library_3\Core\Router.php(119): App\Controllers\HomeController->index()
+#7 C:\laragon\www\online_library_3\public\route.php(12): Core\Router->dispatch('')
+#8 C:\laragon\www\online_library_3\public\index.php(21): require('C:\\laragon\\www\\...')
+#9 {main}
+Thrown in 'C:\laragon\www\online_library_3\App\Views\Dashboard\index.html' on line 2
