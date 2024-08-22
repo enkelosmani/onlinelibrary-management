@@ -1,0 +1,74 @@
+{% extends "layout/appLayout.html" %}
+
+{% block title %}Book Create{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Add Book</h1>
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header">
+                        <h3 class="text-center font-weight-light my-2">Add Book</h3>
+                    </div>
+
+                    <div class="card-body">
+                        <form method="post" action="/books-store">
+                            <div class="form-group">
+                                <label class="small mb-1" >Title:</label>
+                                <input class="form-control py-4" name="title"type="text" placeholder="Enter title" />
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1" >ISBN:</label>
+                                <input class="form-control py-4" name="isbn" type="text" placeholder="Enter isbn" />
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1" >Category:</label>
+                                <select name="category_id">
+                                    <option value="">Zgjedh nje kategory</option>
+                                    {% for category in categories %}
+                                    <option value="{{ category.id }}">{{ category.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="small mb-1" >Author1:</label>
+                                <select name="author_ids[]">
+                                    <option value="">Zgjedh nje autor</option>
+                                    {% for author in authors %}
+                                    <option value="{{ author.id }}">{{ author.first_name }} {{ author.last_name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="small mb-1" >Author2:</label>
+                                <select name="author_ids[]">
+                                    <option value="">Zgjedh nje autor</option>
+                                    {% for author in authors %}
+                                    <option value="{{ author.id }}">{{ author.first_name }} {{ author.last_name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="small mb-1" >Author2:</label>
+                                <select name="author_ids[]">
+                                    <option value="">Zgjedh nje autor</option>
+                                    {% for author in authors %}
+                                    <option value="{{ author.id }}">{{ author.first_name }} {{ author.last_name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <input class="btn btn-primary"  id="login" value="Create Book"
+                                   type="submit"x/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</main>
+
+{% endblock %}

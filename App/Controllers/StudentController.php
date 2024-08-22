@@ -2,64 +2,63 @@
 
 namespace App\Controllers;
 
-use App\Models\Category;
+use App\Models\Student;
 use \Core\View;
 use \Core\Controller;
 
-/**
- * HomeController controller
- */
 class StudentController extends Controller
 {
     public function index()
     {
-        $categories = Category::orderBy('name')->get();
+        $students = Student::orderBy('id','desc')->get();
 
-        View::renderTemplate('Categories/index.html', ['categories' => $categories]);
+        View::renderTemplate('Students/index.html', ['students' => $students]);
     }
 
     public function create()
     {
-        View::renderTemplate('Categories/create.html');
+        View::renderTemplate('Students/create.html');
     }
 
     public function store()
     {
-//        $category = new Category();  //Menyra 1
-//        $category->name = $_POST['name'];
-//        $category->save();
+        Student::create($_POST);
 
-        Category::create($_POST); // menyra 2
-
-        header("Location: /categories");
-    }
-
-    public function show()
-    {
-
+        header('Location: /students');
     }
 
     public function edit()
     {
-        $category = Category::find($_GET['id']);
+        $id = $_GET['id'];
+        $student = Student::findOrFail($id);
 
-        View::renderTemplate('Categories/edit.html', ['category' => $category]);
+        View::renderTemplate('Students/edit.html', ['student'=>$student]);
     }
 
     public function update()
     {
-        $category = Category::find($_POST['id']);
-        $category->name = $_POST['name'];
-        $category->save();
+        $id = $_POST['id'];
+        $student = Student::findOrFail($id);
+        $student->first_name = $_POST['first_name'];
+        $student->last_name = $_POST['last_name'];
+        $student->country = $_POST['country'];
+        $student->city = $_POST['city'];
+        $student->address = $_POST['address'];
+        $student->phone = $_POST['phone'];
+        $student->email = $_POST['email'];
+        $student->status = $_POST['status'];
+        $student->index_no = $_POST['index_no'];
+        $student->update();
 
-        header("Location: /categories");
+        header('Location: /students');
     }
 
     public function destroy()
     {
-        $category = Category::find($_GET['id']);
-        $category->delete();
+        $id = $_POST['id'];
+        $student = Student::findOrFail($id);
+        $student->delete();
 
-        header("Location: /categories");
+        header('Location: /students');
     }
 }

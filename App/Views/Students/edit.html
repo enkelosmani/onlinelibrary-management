@@ -1,33 +1,71 @@
 {% extends "layout/appLayout.html" %}
-
-{% block title %}Category Edit{% endblock %}
+{% block title %} User Student {{ author.name }} {% endblock %}
 
 {% block content %}
+
 <main>
     <div class="container-fluid">
-        <h1 class="mt-4">Edit Category</h1>
+        <h1 class="mt-4">Edit Student</h1>
         <div class="row justify-content-center">
             <div class="col-lg-9">
                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                     <div class="card-header">
-                        <h3 class="text-center font-weight-light my-2">Edit Category</h3>
+                        <h3 class="text-center font-weight-light my-2">Edit Student</h3>
                     </div>
-
                     <div class="card-body">
-                        <form method="post" action="/categories-update">
+                        <form method="post" action="/students-update">
+                            <input type="hidden" name="id" value="{{ student.id }}">
                             <div class="form-group">
-                                <input type="hidden" value="{{ category.id }}" name="id">
-                                <label class="small mb-1">Name :</label>
-                                <input class="form-control py-4" name="name" value="{{ category.name }}" type="text" placeholder="Enter name"/>
+                                <label class="small mb-1" >First name :</label>
+                                <input class="form-control py-4" name="first_name"type="text" value="{{ student.first_name }}" placeholder="Enter name" />
                             </div>
-
-                            <input class="btn btn-primary" value="Edit Category" type="submit" />
+                            <div class="form-group">
+                                <label class="small mb-1" >Last name :</label>
+                                <input class="form-control py-4" name="last_name" type="text" value="{{ student.last_name }}" placeholder="Enter last name" />
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1" for="email">Email</label>
+                                <input class="form-control py-4" value="{{ student.email }}" name="email" id="email" type="text" placeholder="Enter email" />
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1" >Country :</label>
+                                <input class="form-control py-4" value="{{ student.country }}" name="country"type="text" placeholder="Enter name" />
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1" >City :</label>
+                                <input class="form-control py-4" value="{{ student.city }}" name="city" type="text" placeholder="Enter last name" />
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1" for="email">Address</label>
+                                <input class="form-control py-4" value="{{ student.address }}" name="address" id="address" type="text" placeholder="Enter email" />
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1" for="phone">Phone</label>
+                                <input class="form-control py-4" value="{{ student.phone }}" name="phone" id="phone" type="text" placeholder="Enter phone" />
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1" for="index_no">Index no</label>
+                                <input class="form-control py-4" name="index_no" value="{{ student.index_no }}" id="index_no" type="number"
+                                       placeholder="Enter index no"/>
+                            </div>
+                            <div class="form-group d-flex flex-column">
+                                <label class="small mb-1" for="index_no">status</label>
+                                <div class="">
+                                    {{ student.status == 0 }}
+                                    <input class="" name="status" id="status_active" type="radio" checked="{{ student.status == 1 ? 'true' : '' }}" value="1"/>
+                                    <label class="small mb-1" for="index_no">Active</label>
+                                    <input class="" name="status" id="status_inactive" type="radio" checked="{{ student.status == 0 ? 'true' : '' }}" value="0"/>
+                                    <label class="small mb-1" for="index_no">Inactive</label>
+                                </div>
+                            </div>
+                            <input class="btn btn-primary"  id="login" value="Edit Student" type="submit"/>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </main>
+
+
 
 {% endblock %}
