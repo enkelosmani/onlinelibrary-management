@@ -43,6 +43,17 @@ $router->add('books-edit', ['controller' => 'BookController', 'action' => 'edit'
 $router->add('books-update', ['controller' => 'BookController', 'action' => 'update']);
 $router->add('books-delete', ['controller' => 'BookController', 'action' => 'destroy']);
 
+$router->add('borrows', ['controller' => 'BorrowController', 'action' => 'index']);
+$router->add('borrows-create', ['controller' => 'BorrowController', 'action' => 'create']);
+$router->add('borrows-store', ['controller' => 'BorrowController', 'action' => 'store']);
+$router->add('borrows-edit', ['controller' => 'BorrowController', 'action' => 'edit']);
+$router->add('borrows-update', ['controller' => 'BorrowController', 'action' => 'update']);
+$router->add('borrows-delete', ['controller' => 'BorrowController', 'action' => 'destroy']);
+
+$router->add('login', ['controller' => 'AuthController', 'action' => 'loginForm']);
+$router->add('login-store', ['controller' => 'AuthController', 'action' => 'store']);
+$router->add('logout', ['controller' => 'AuthController', 'action' => 'logout']);
+
 $router->dispatch($_SERVER['QUERY_STRING']);
 
 

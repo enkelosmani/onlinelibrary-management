@@ -12,7 +12,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $user = 'Urim Zymberi';
-        View::renderTemplate('Dashboard/index.html',['user'=>$user]);
+        View::renderTemplate('Landing/index.html');
     }
 }

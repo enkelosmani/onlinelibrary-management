@@ -1,0 +1,61 @@
+{% extends "layout/appLayout.html" %}
+
+{% block title %}Borrow Edit{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Edit Borrow</h1>
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header">
+                        <h3 class="text-center font-weight-light my-2">Edit Borrow</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" action="/borrows-update">
+                            <input type="hidden" name="id" value="{{ borrow.id }}">
+                            <div class="form-group">
+                                <label class="small mb-1" for="book">Book</label>
+                                <select class="form-control" name="book_id" id="book"required>
+                                    <option value="">Choose a book</option>
+                                    {% for book in books %}
+                                    <option value="{{ book.id }}" {% if borrow.book_id == book.id %} selected {% endif %}>{{ book.title }} - {{ book.isbn }}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1" for="students">Student</label>
+                                <select class="form-control" name="student_id" id="students"required>
+                                    <option value="">Choose a student</option>
+                                    {% for student in students %}
+                                    <option value="{{ student.id }}" {% if borrow.student_id == student.id %} selected {% endif %}>{{ student.first_name }} {{ student.last_name }} - {{ student.index_no }}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1">Borrow date :</label>
+                                <input class="form-control py-4" name="borrow_date" value="{{ borrow.borrow_date }}" type="date" placeholder="Enter borrow date"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1">Return date :</label>
+                                <input class="form-control py-4" name="return_date" value="{{ borborrowrow.return_date }}" type="date" placeholder="Enter return date"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1">Price :</label>
+                                <input class="form-control py-4" name="price" type="number" value="{{ borrow.price }}" placeholder="Enter price"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1">Comment :</label>
+                                <textarea class="w-100 form-control" name="comment">{{ borrow.comment }}</textarea>
+                            </div>
+                            <input class="btn btn-primary" id="login" value="Borrow" type="submit"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</main>
+{% endblock %}

@@ -2,12 +2,20 @@
 
 namespace App\Controllers;
 
+use App\Helper\Session;
 use App\Models\Student;
 use \Core\View;
 use \Core\Controller;
 
 class StudentController extends Controller
 {
+    public function __construct()
+    {
+        $session = Session::getInstance();
+        if (!$session->isSignedIn()){
+            header('Location: /login');
+        }
+    }
     public function index()
     {
         $students = Student::orderBy('id','desc')->get();

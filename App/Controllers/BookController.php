@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Helper\Session;
 use App\Models\Author;
 use App\Models\Book;
 use App\Models\Category;
@@ -10,9 +11,19 @@ use \Core\Controller;
 
 class BookController extends Controller
 {
+    public function __construct()
+    {
+        $session = Session::getInstance();
+        if (!$session->isSignedIn()){
+            header('Location: /login');
+        }
+    }
     public function index()
     {
-        $books = Book::orderBy('id', 'desc')->with('category')->get();
+        $books = Book::orderBy('id', 'desc')
+            ->with('category')
+            ->with('authors')
+            ->get();
 
         View::renderTemplate('Books/index.html', ['books' => $books]);
     }
@@ -27,12 +38,13 @@ class BookController extends Controller
 
     public function store()
     {
-        dd($_POST);
         $book = new Book();
         $book->title = $_POST['title'];
         $book->isbn = $_POST['isbn'];
         $book->category_id = $_POST['category_id'];
         $book->save();
+
+        $book->authors()->sync($_POST['authors']);
 
         header('Location: /books');
     }

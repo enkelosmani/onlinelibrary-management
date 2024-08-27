@@ -33,35 +33,23 @@
                                 </select>
                             </div>
 
-                            <div class="form-group">
-                                <label class="small mb-1" >Author1:</label>
-                                <select name="author_ids[]">
-                                    <option value="">Zgjedh nje autor</option>
-                                    {% for author in authors %}
-                                    <option value="{{ author.id }}">{{ author.first_name }} {{ author.last_name }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
 
-                            <div class="form-group">
-                                <label class="small mb-1" >Author2:</label>
-                                <select name="author_ids[]">
-                                    <option value="">Zgjedh nje autor</option>
-                                    {% for author in authors %}
-                                    <option value="{{ author.id }}">{{ author.first_name }} {{ author.last_name }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
 
-                            <div class="form-group">
-                                <label class="small mb-1" >Author2:</label>
-                                <select name="author_ids[]">
-                                    <option value="">Zgjedh nje autor</option>
-                                    {% for author in authors %}
-                                    <option value="{{ author.id }}">{{ author.first_name }} {{ author.last_name }}</option>
-                                    {% endfor %}
-                                </select>
+                            <br> <br>
+                            <div id="authors">
+                                <div class="form-group">
+                                    <label class="small mb-1" for="author1">Author 1</label>
+                                    <select class="form-control" name="authors[]" id="author1"required>
+                                        <option value="">zgjedh autorin</option>
+                                        {% for author in authors %}
+                                        <option value="{{ author.id }}">{{ author.first_name }} {{ author.last_name }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
                             </div>
+                            <button type="button" onclick="createAuthorElement()">Add another author</button>
+                            <br> <br>
                             <input class="btn btn-primary"  id="login" value="Create Book"
                                    type="submit"x/>
                         </form>
@@ -71,4 +59,22 @@
         </div>
 </main>
 
+<script>
+    let author_n = 1
+    function createAuthorElement() {
+        author_n ++
+        let authorElement = document.createElement("div");
+        authorElement.innerHTML = '<label class="small mb-1" for="author' + author_n + '">Author ' + author_n + '</label>\n' +
+            '                                <select class="form-control" name="authors[]" id="author' + author_n + '" required>\n' +
+            '                                    <option value="">zgjedh autorin</option>\n' +
+            '                                    {% for author in authors %}\n' +
+            '                                    <option value="{{ author.id }}">{{ author.first_name }} {{ author.last_name }}\n' +
+            '                                    </option>\n' +
+            '                                    {% endfor %}\n' +
+            '                                </select>';
+        authorElement.setAttribute('class', 'form-group');
+        authorsEl = document.getElementById('authors')
+        authorsEl.appendChild(authorElement);
+    }
+</script>
 {% endblock %}

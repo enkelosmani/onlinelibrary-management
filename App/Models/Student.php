@@ -16,4 +16,9 @@ class Student extends Model
         'status',
         'index_no',
     ];
+
+    public function borrows()
+    {
+        return $this->hasMany(Borrow::class);
+    }
 }

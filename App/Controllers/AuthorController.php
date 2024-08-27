@@ -10,6 +10,13 @@ use \Core\Controller;
 
 class AuthorController extends Controller
 {
+    public function __construct()
+    {
+        $session = Session::getInstance();
+        if (!$session->isSignedIn()){
+            header('Location: /login');
+        }
+    }
     public function index()
     {
         $authors = Author::orderBy('id','desc')->get();
